@@ -71,6 +71,7 @@ class Ui_MainWindow(object):
         self.outputTextBrowser = QtWidgets.QTextBrowser(self.centralwidget)
         self.outputTextBrowser.setFont(QFont("Ubuntu Mono", 11))
         self.outputTextBrowser.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.outputTextBrowser.setLineWrapMode(QtWidgets.QTextEdit.NoWrap)
         self.outputTextBrowser.setObjectName("outputTextBrowser")
         self.verticalLayout_4.addWidget(self.outputTextBrowser)
         self.horizontalLayout_2.addLayout(self.verticalLayout_4)
@@ -147,7 +148,7 @@ class Ui_MainWindow(object):
         output = self.outputTextBrowser.toPlainText()
         if output:
             # save tree
-            file_name, _ = QFileDialog.getSaveFileName(None, 'Save file', '', '')
+            file_name, _ = QFileDialog.getSaveFileName(None, 'Save file', '', 'TXT (*.txt)')
             if file_name:
                 try:
                     # save tree to text file
